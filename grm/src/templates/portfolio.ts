@@ -294,7 +294,7 @@ export const portfolioTemplate: Template = {
       }
       
       if (smallCards.length > 0) {
-        markdown += `<p align="center">\n${smallCards.join(' ')}\n</p>\n\n`;
+        markdown += `\n${smallCards.join(' ')}\n\n\n`;
       }
     }
 

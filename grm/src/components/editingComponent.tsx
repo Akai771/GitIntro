@@ -33,19 +33,23 @@ export default function EditingComponent({
   const colorMode = theme === 'dark' ? 'dark' : 'light';
 
   return (
-    <div className="flex-1 grid grid-cols-2 overflow-hidden">
+    <div className="flex-1 grid grid-cols-1 lg:grid-cols-2 overflow-hidden">
       {/* Left Panel - Form Editor */}
-      <div className="border-r border-border flex flex-col overflow-hidden">
-        <div className="px-6 py-4 border-b border-border bg-muted/30 shrink-0">
+      <div className="border-r border-border flex flex-col overflow-hidden min-h-0">
+        <div className="px-4 sm:px-6 py-3 sm:py-4 border-b border-border bg-muted/30 shrink-0">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid w-full grid-cols-2 h-11">
-              <TabsTrigger value="edit" className="gap-2 data-[state=active]:bg-background">
-                <Code2 className="w-4 h-4" />
-                Form Editor
+            <TabsList className="grid w-full grid-cols-3 lg:grid-cols-2 h-10 sm:h-11">
+              <TabsTrigger value="edit" className="gap-1 sm:gap-2 data-[state=active]:bg-background text-xs sm:text-sm">
+                <Code2 className="w-4 h-4 hidden sm:block" />
+                Edit
               </TabsTrigger>
-              <TabsTrigger value="markdown" className="gap-2 data-[state=active]:bg-background">
-                <Code2 className="w-4 h-4" />
-                Markdown
+              <TabsTrigger value="markdown" className="gap-1 sm:gap-2 data-[state=active]:bg-background text-xs sm:text-sm">
+                <Code2 className="w-4 h-4 hidden sm:block" />
+                Code
+              </TabsTrigger>
+              <TabsTrigger value="preview" className="gap-1 sm:gap-2 data-[state=active]:bg-background text-xs sm:text-sm lg:hidden">
+                <Eye className="w-4 h-4 hidden sm:block" />
+                Preview
               </TabsTrigger>
             </TabsList>
           </Tabs>
@@ -54,7 +58,7 @@ export default function EditingComponent({
         <div className="flex-1 overflow-hidden">
           {activeTab === "edit" && (
             <div className="h-full overflow-y-auto">
-              <div className="px-6 py-6 space-y-6">
+              <div className="px-4 sm:px-6 py-4 sm:py-6 space-y-4 sm:space-y-6">
                 {template && Object.values(template.sections)
                   .sort((a, b) => a.order - b.order)
                   .map((section) => (
@@ -155,7 +159,7 @@ export default function EditingComponent({
           )}
 
           {activeTab === "markdown" && (
-            <div className="h-full px-6 py-6 flex flex-col">
+            <div className="h-full px-4 sm:px-6 py-4 sm:py-6 flex flex-col">
               <div className="flex items-center justify-between mb-3">
                 <Label className="text-sm font-medium">
                   Raw Markdown
@@ -179,12 +183,32 @@ export default function EditingComponent({
               </div>
             </div>
           )}
+
+          {/* Mobile Preview Tab */}
+          {activeTab === "preview" && (
+            <div className="h-full overflow-y-auto lg:hidden">
+              <div className="px-4 py-4">
+                <div className="prose prose-neutral dark:prose-invert max-w-none bg-background rounded-lg border border-border p-4 min-h-[calc(100vh-200px)]">
+                  <MarkdownPreview 
+                    source={markdown} 
+                    style={{ 
+                      backgroundColor: 'transparent',
+                      color: 'inherit'
+                    }}
+                    wrapperElement={{
+                      'data-color-mode': colorMode
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
-      {/* Right Panel - Live Preview */}
-      <div className="flex flex-col bg-muted/20 overflow-hidden">
-        <div className="px-6 py-6 border-b border-border bg-muted/30 flex items-center justify-between shrink-0">
+      {/* Right Panel - Live Preview (Desktop only) */}
+      <div className="hidden lg:flex flex-col bg-muted/20 overflow-hidden">
+        <div className="px-4 sm:px-6 py-4 sm:py-6 border-b border-border bg-muted/30 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-2">
             <Eye className="w-5 h-5 text-primary" />
             <h2 className="text-lg font-semibold">Live Preview</h2>

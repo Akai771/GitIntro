@@ -1,5 +1,6 @@
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { useLocalStorage } from "@uidotdev/usehooks";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { 
@@ -20,11 +21,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
 export default function Editor() {
   const { templateId } = useParams();
@@ -32,8 +29,13 @@ export default function Editor() {
   const [activeTab, setActiveTab] = useState("edit");
   const [template, setTemplate] = useState<Template | null>(null);
   const [readmeData, setReadmeData] = useState<Record<string, string>>({});
+  const [savedDrafts, setSavedDrafts] = useLocalStorage<Record<string, Record<string, string>>>("readme-drafts", {});
+  const [isSaved, setIsSaved] = useState(false);
+  
+  // Use ref to track if initial load has happened to prevent re-runs
+  const isInitialized = useRef(false);
 
-  // Load template on mount
+  // Load template on mount - only runs once per templateId
   useEffect(() => {
     if (!templateId) {
       navigate("/templates");
@@ -46,16 +48,29 @@ export default function Editor() {
       return;
     }
 
-    setTemplate(loadedTemplate);
+    // Only initialize data on first mount or when templateId changes
+    if (!isInitialized.current || template?.id !== loadedTemplate.id) {
+      setTemplate(loadedTemplate);
 
-    // Initialize readmeData with default values from template fields
-    const initialData: Record<string, string> = {};
-    Object.values(loadedTemplate.sections).forEach(section => {
-      section.fields.forEach(field => {
-        initialData[field.id] = field.defaultValue || "";
-      });
-    });
-    setReadmeData(initialData);
+      // Check if there's a saved draft for this template
+      const savedDraft = savedDrafts[templateId];
+      
+      if (savedDraft) {
+        // Load from saved draft
+        setReadmeData(savedDraft);
+      } else {
+        // Initialize readmeData with default values from template fields
+        const initialData: Record<string, string> = {};
+        Object.values(loadedTemplate.sections).forEach(section => {
+          section.fields.forEach(field => {
+            initialData[field.id] = field.defaultValue || "";
+          });
+        });
+        setReadmeData(initialData);
+      }
+      
+      isInitialized.current = true;
+    }
   }, [templateId, navigate]);
 
   const handleInputChange = useCallback((field: string, value: string) => {
@@ -84,47 +99,66 @@ export default function Editor() {
     // Could add a toast notification here
   }, [markdown]);
 
+  const handleSave = useCallback(() => {
+    if (!templateId) return;
+    
+    // Save current readmeData to local storage
+    setSavedDrafts(prev => ({
+      ...prev,
+      [templateId]: readmeData
+    }));
+    
+    // Show save indicator
+    setIsSaved(true);
+    setTimeout(() => setIsSaved(false), 2000);
+  }, [templateId, readmeData, setSavedDrafts]);
+
   return (
     <div className="h-screen py-18 flex flex-col bg-background text-foreground overflow-hidden">
       {/* Top Bar */}
       <div className="border-b border-border bg-background">
-        <div className="px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
+        <div className="px-3 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2 sm:gap-4 min-w-0">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => navigate("/templates")}
-              className="gap-2"
+              className="gap-1 sm:gap-2 px-2 sm:px-3"
             >
               <ArrowLeft className="w-4 h-4" />
-              Back
+              <span className="hidden sm:inline">Back</span>
             </Button>
-            <div className="h-6 w-px bg-border" />
-            <Badge variant="outline" className="border-primary/20 text-primary bg-primary/5">
+            <div className="h-6 w-px bg-border hidden sm:block" />
+            <Badge variant="outline" className="border-primary/20 text-primary bg-primary/5 text-xs hidden md:inline-flex">
               Step 2 of 2: Editor
             </Badge>
-            <span className="text-sm font-medium text-foreground capitalize">{templateId} template</span>
+            <span className="text-xs sm:text-sm font-medium text-foreground capitalize truncate">{templateId} template</span>
           </div>
-          <div className="flex gap-2">
-            <Button variant="outline" size="sm" onClick={handleCopy}>
-              <Copy className="w-4 h-4 mr-2" />
-              Copy
+          <div className="flex gap-1 sm:gap-1 sm:gap-2">
+            <Button variant="outline" size="sm" onClick={handleCopy} className="px-2 sm:px-3">
+              <Copy className="w-4 h-4 sm:mr-2" />
+              <span className="hidden sm:inline">Copy</span>
             </Button>
-            <Button variant="outline" size="sm">
-              <Save className="w-4 h-4 mr-2" />
-              Save
-            </Button>
-            <Button size="sm" onClick={handleDownload} className="gap-2">
+            <Tooltip>
+              <TooltipTrigger>
+                <Button variant="outline" size="sm" onClick={handleSave} className="px-2 sm:px-3">
+                  <Save className="w-4 h-4 sm:mr-2" />
+                  <span className="hidden sm:inline">{isSaved ? "Saved!" : "Save Draft"}</span>
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>Saves your progress in the browser</TooltipContent>
+            </Tooltip>
+            <Button size="sm" onClick={handleDownload} className="gap-1 sm:gap-2 px-2 sm:px-3">
               <Download className="w-4 h-4" />
-              Download
+              <span className="hidden sm:inline">Download</span>
             </Button>
             <Dialog>
               <DialogTrigger>
                 <Tooltip>
-                  <TooltipTrigger><CircleQuestionMark className="w-5 h-5 mt-1" /></TooltipTrigger>
-                  <TooltipContent>
-                    <p>How to Add README to Your GitHub Profile</p>
-                  </TooltipContent>
+                  <TooltipTrigger>
+                    <CircleQuestionMark className="w-5 h-5 mt-1" />
+                  </TooltipTrigger>
+                  <TooltipContent>Saves your progress in the browser</TooltipContent>
                 </Tooltip>
               </DialogTrigger>
               <DialogContent className="max-w-lg">

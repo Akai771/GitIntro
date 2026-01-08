@@ -22,6 +22,7 @@
     "@radix-ui/react-tooltip": "^1.2.8",
     "@tabler/icons-react": "^3.36.1",
     "@tailwindcss/vite": "^4.1.18",
+    "@uidotdev/usehooks": "^2.4.1",
     "@uiw/react-markdown-preview": "^5.1.5",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

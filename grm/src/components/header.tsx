@@ -65,7 +65,7 @@ export default function Header() {
           </span>
         </div>
         <div className="flex flex-row">
-          <Button variant="ghost" size="icon" onClick={() => window.open("https://github.com/akai771", "_blank")}><Github className="w-5 h-5 text-white" /></Button>
+          <Button variant="ghost" size="icon" onClick={() => window.open("https://github.com/akai771/", "_blank")}><Github className="w-5 h-5 text-white" /></Button>
           {/* Theme Switcher */}
           <CustomToggle />
         </div>

@@ -1,5 +1,6 @@
 import { Github, Heart, Linkedin, Mail } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { Button } from "./ui/button";
 
 export default function Footer() {
   const navigate = useNavigate();
@@ -113,7 +114,7 @@ export default function Footer() {
             <div className="flex items-center gap-1 text-sm text-muted-foreground">
               <span>Made with</span>
               <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" />
-              <span>by developers, for developers</span>
+              <span>by <Button variant="link" size="sm" className="p-0" onClick={() => window.open("https://github.com/akai771", "_blank")}>Akai771</Button></span>
             </div>
           </div>
         </div>
