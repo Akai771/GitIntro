@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useLocalStorage } from "@uidotdev/usehooks";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { 
@@ -92,11 +93,12 @@ export default function Editor() {
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
+    toast.success("README.md download started");
   }, [markdown]);
 
   const handleCopy = useCallback(() => {
     navigator.clipboard.writeText(markdown);
-    // Could add a toast notification here
+    toast.success("Copied to clipboard");
   }, [markdown]);
 
   const handleSave = useCallback(() => {
@@ -111,6 +113,7 @@ export default function Editor() {
     // Show save indicator
     setIsSaved(true);
     setTimeout(() => setIsSaved(false), 2000);
+    toast.success("Draft saved successfully");
   }, [templateId, readmeData, setSavedDrafts]);
 
   return (
@@ -163,9 +166,9 @@ export default function Editor() {
               </DialogTrigger>
               <DialogContent className="max-w-lg">
                 <DialogHeader>
-                  <DialogTitle className="text-xl">How to Add README to Your GitHub Profile</DialogTitle>
+                  <DialogTitle className="text-xl text-left">How to Add README to Your GitHub Profile</DialogTitle>
                   <DialogDescription asChild>
-                    <div className="space-y-4 text-sm text-muted-foreground">
+                    <div className="space-y-4 text-sm text-muted-foreground text-left">
                       <p>Follow these steps to display your README on your GitHub profile:</p>
                       
                       <ol className="list-decimal list-inside space-y-3">
