@@ -2,25 +2,20 @@
 
 A modern, intuitive web application for creating beautiful GitHub profile READMEs with ease. Choose from professionally designed templates, customize them to your needs, and generate markdown ready to showcase your profile.
 
-![React](https://img.shields.io/badge/React-19.2.0-61DAFB?style=flat-square&logo=react&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=flat-square&logo=vite&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/Tailwind-4.1-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)
+## Features
 
-## ✨ Features
+- **6 Professional Templates** - Minimalist Dev, Portfolio Showcase, Technical Writer, Indie Hacker, Social Connector, and Blank Canvas
+- **Interactive Editor** - Real-time preview with side-by-side editing
+- **Tech Stack Selector** - Easily add technology badges with auto-complete
+- **GitHub Stats Integration** - Multiple stat cards and activity graphs
+- **Dark/Light Mode** - Seamless theme switching
+- **Auto-save Drafts** - Never lose your progress with local storage
+- **Fully Responsive** - Works perfectly on all devices
+- **Live Markdown Preview** - See exactly how your README will look
+- **One-Click Copy** - Copy generated markdown instantly
+- **Direct Download** - Download as README.md file
 
-- 🎨 **6 Professional Templates** - Minimalist Dev, Portfolio Showcase, Technical Writer, Indie Hacker, Social Connector, and Blank Canvas
-- 🎯 **Interactive Editor** - Real-time preview with side-by-side editing
-- 🛠️ **Tech Stack Selector** - Easily add technology badges with auto-complete
-- 📊 **GitHub Stats Integration** - Multiple stat cards and activity graphs
-- 🌓 **Dark/Light Mode** - Seamless theme switching
-- 💾 **Auto-save Drafts** - Never lose your progress with local storage
-- 📱 **Fully Responsive** - Works perfectly on all devices
-- 🎨 **Live Markdown Preview** - See exactly how your README will look
-- 📋 **One-Click Copy** - Copy generated markdown instantly
-- ⬇️ **Direct Download** - Download as README.md file
-
-## 🚀 Tech Stack
+## Tech Stack
 
 - **Frontend Framework:** React 19 with TypeScript
 - **Build Tool:** Vite
@@ -31,7 +26,7 @@ A modern, intuitive web application for creating beautiful GitHub profile README
 - **Markdown Preview:** @uiw/react-markdown-preview
 - **Icons:** Lucide React + Tabler Icons
 
-## 📦 Installation
+## Installation
 
 ```bash
 # Clone the repository
@@ -63,7 +58,7 @@ npm run dev
 5. **Preview in Real-time** - See your README update live as you type
 6. **Copy or Download** - Get your markdown with one click
 
-## 🎨 Template Gallery
+## Template Gallery
 
 | Template | Description | Best For |
 |----------|-------------|----------|
@@ -74,7 +69,7 @@ npm run dev
 | **Social Connector** | Social media hub | Community builders, influencers |
 | **Blank Canvas** | Start from scratch | Advanced users, unique layouts |
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
@@ -84,18 +79,18 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 4. Push to the branch (`git push origin feature/FeatureName`)
 5. Open a Pull Request
 
-## 📝 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - [Shields.io](https://shields.io/) - Badge generation
 - [GitHub Readme Stats](https://github.com/anuraghazra/github-readme-stats) - GitHub statistics
 - [Radix UI](https://www.radix-ui.com/) - Accessible UI components
 - [Lucide](https://lucide.dev/) - Beautiful icons
 
-## 📧 Contact
+## Contact
 
 Found a bug or have a feature request? Please [open an issue](https://github.com/yourusername/github-readme-maker/issues).
 

@@ -1,6 +1,7 @@
 import { Github, Heart, Linkedin, Mail } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
+import { useThemeToggle } from "@/components/ui/skiper-ui/skiper26";
 
 export default function Footer() {
   const navigate = useNavigate();
@@ -17,6 +18,11 @@ export default function Footer() {
     ],
   };
 
+  const { isDark } = useThemeToggle({
+      variant: "circle",
+      start: "top-right",
+    });
+
   return (
     <footer className="bg-background">
       <div className="container bg-muted-foreground/10 rounded-xl mb-12 mx-auto px-8 py-10">
@@ -24,9 +30,11 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-               <div className="w-8 h-8 rounded-lg flex items-center justify-center">
-                    <Github className="w-5 h-5 text-white" />
-                </div>
+               <img 
+                 src={isDark ? "/logo_Dark.png" : "/logo_Light.png"}
+                 alt="GitIntro Logo" 
+                 className="w-8 h-8 rounded-lg"
+               />
                 <span className="text-xl font-bold text-primary">
                     GitIntro
                 </span>
