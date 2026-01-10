@@ -5,6 +5,7 @@ import Editor from "./pages/editor";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { ThemeProvider } from "./components/theme-provider";
+import ErrorPage from "./pages/error";
 
 export default function App() {
   return (
@@ -17,6 +18,8 @@ export default function App() {
               <Route path="/" element={<Home />} />
               <Route path="/templates" element={<Templates />} />
               <Route path="/editor/:templateId" element={<Editor />} />
+
+              <Route path="*" element={<ErrorPage />} />
             </Routes>
           </main>
           <Footer />

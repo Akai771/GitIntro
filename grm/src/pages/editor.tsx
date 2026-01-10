@@ -134,7 +134,7 @@ export default function Editor() {
             </Badge>
             <span className="text-xs sm:text-sm font-medium text-foreground capitalize truncate">{templateId} template</span>
           </div>
-          <div className="flex gap-1 sm:gap-1 sm:gap-2">
+          <div className="flex gap-1 sm:gap-2">
             <Button variant="outline" size="sm" onClick={handleCopy} className="px-2 sm:px-3">
               <Copy className="w-4 h-4 sm:mr-2" />
               <span className="hidden sm:inline">Copy</span>

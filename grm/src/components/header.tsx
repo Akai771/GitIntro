@@ -40,7 +40,7 @@ export default function Header() {
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div onClick={() => navigate("/")} className="flex items-center space-x-2 cursor-pointer">
             <div className="w-8 h-8 rounded-lg bg-linear-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-              <Github className="w-5 h-5 text-white" />
+              <Github className="w-5 h-5 text-foreground" />
             </div>
             <span className="text-xl font-bold bg-clip-text text-transparent bg-linear-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
               GitIntro
@@ -58,14 +58,14 @@ export default function Header() {
         {/* Logo */}
         <div onClick={() => navigate("/")} className="flex items-center space-x-2 cursor-pointer">
           <div className="w-8 h-8 rounded-lg flex items-center justify-center">
-            <Github className="w-5 h-5 text-white" />
+            <Github className="w-5 h-5 text-foreground" />
           </div>
           <span className="text-xl font-bold text-primary">
             GitIntro
           </span>
         </div>
         <div className="flex flex-row">
-          <Button variant="ghost" size="icon" onClick={() => window.open("https://github.com/akai771/", "_blank")}><Github className="w-5 h-5 text-white" /></Button>
+          <Button variant="ghost" size="icon" className="cursor-pointer" onClick={() => window.open("https://github.com/akai771/", "_blank")}><Github className="w-5 h-5 text-foreground" /></Button>
           {/* Theme Switcher */}
           <CustomToggle />
         </div>

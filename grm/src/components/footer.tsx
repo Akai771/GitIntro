@@ -18,8 +18,8 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-background border-t border-border">
-      <div className="container mx-auto px-4 py-8">
+    <footer className="bg-background">
+      <div className="container bg-muted-foreground/10 rounded-xl mb-12 mx-auto px-8 py-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="space-y-4">
@@ -80,41 +80,41 @@ export default function Footer() {
                 href="https://github.com/akai771"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-md bg-muted hover:bg-muted-foreground/20 flex items-center justify-center transition-colors"
+                className="group w-9 h-9 rounded-md bg-muted hover:bg-muted-foreground/20 flex items-center justify-center transition-colors"
                 aria-label="GitHub"
               >
-                <Github className="w-4 h-4 text-foreground" />
+                <Github className="w-4 h-4 text-foreground transition-all ease-in-out duration-300 group-hover:text-primary" />
               </a>
               <a
                 href="https://www.linkedin.com/in/rishabh-shetty18/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-md bg-muted hover:bg-muted-foreground/20 flex items-center justify-center transition-colors"
+                className="group w-9 h-9 rounded-md bg-muted hover:bg-muted-foreground/20 flex items-center justify-center transition-colors"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="w-4 h-4 text-foreground" />
+                <Linkedin className="w-4 h-4 text-foreground transition-all ease-in-out duration-300 group-hover:text-primary" />
               </a>
               <a
                 href="mailto:rishabh.shetty123@gmail.com"
-                className="w-9 h-9 rounded-md bg-muted hover:bg-muted-foreground/20 flex items-center justify-center transition-colors"
+                className="group w-9 h-9 rounded-md bg-muted hover:bg-muted-foreground/20 flex items-center justify-center transition-colors"
                 aria-label="Email"
               >
-                <Mail className="w-4 h-4 text-foreground" />
+                <Mail className="w-4 h-4 text-foreground transition-all ease-in-out duration-300 group-hover:text-primary" />
               </a>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-8 pt-6 border-t border-border">
+        <div className="mt-8 pt-4 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-muted-foreground">
               © {currentYear} GitIntro. All rights reserved.
             </p>
             <div className="flex items-center gap-1 text-sm text-muted-foreground">
               <span>Made with</span>
-              <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" />
-              <span>by <Button variant="link" size="sm" className="p-0" onClick={() => window.open("https://github.com/akai771", "_blank")}>Akai771</Button></span>
+              <Heart className="w-4 h-4 text-primary fill-primary animate-pulse" />
+              <span>by <Button variant="link" size="sm" className="p-0 cursor-pointer" onClick={() => window.open("https://github.com/akai771", "_blank")}>Akai771</Button></span>
             </div>
           </div>
         </div>
