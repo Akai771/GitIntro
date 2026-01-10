@@ -25,7 +25,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-background">
-      <div className="container bg-muted-foreground/10 rounded-xl mb-12 mx-auto px-8 py-10">
+      <div className="container bg-muted-foreground/10 md:rounded-xl md:mb-12 mx-auto px-8 py-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="space-y-4">

@@ -85,10 +85,8 @@ export default function Home() {
     <>
       <ReactLenis root />
       <div className="min-h-screen bg-background text-foreground overflow-hidden relative selection:bg-primary/20">
-        {/* Abstract Background Blobs */}
-
         {/* Hero Section */}
-        <section ref={heroRef} className="container mx-auto px-6 py-24 md:py-32 flex flex-col items-center text-center relative z-10">
+        <section ref={heroRef} className="container mx-auto px-6 py-32 flex flex-col items-center text-center relative z-10">
           <Badge
             data-animate
             variant="default"
@@ -100,10 +98,10 @@ export default function Home() {
             </span>
             <span>v1.0 is now available</span>
           </Badge>
-
+          {/* Heading */}
           <h1 
             data-animate
-            className="h-54 text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-8 max-w-5xl bg-clip-text text-transparent bg-linear-to-b from-foreground to-foreground/70 opacity-0 translate-y-7.5 transition-all duration-700 delay-100 [&.animate-in-view]:opacity-100 [&.animate-in-view]:translate-y-0"
+            className="md:h-54 text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-8 max-w-5xl bg-clip-text text-transparent bg-linear-to-b from-foreground to-foreground/70 opacity-0 translate-y-7.5 transition-all duration-700 delay-100 [&.animate-in-view]:opacity-100 [&.animate-in-view]:translate-y-0"
           >
             Craft Your{" "}
             <AuroraText colors={["oklch(0.869 0.088 60.682)", "oklch(0.869 0.088 60.682 / 0.5)", "oklch(0.869 0.088 60.682)"]}>Github</AuroraText>
@@ -183,7 +181,7 @@ export default function Home() {
         </section>
 
         {/* CTA Section with Template Grid */}
-        <section ref={ctaRef} className="container mx-auto px-6 py-24 mb-12">
+        <section ref={ctaRef} className="container mx-auto px-6 md:px-0 py-24 mb-12">
           <div className="relative rounded-3xl bg-linear-to-br from-background via-muted/20 to-background border border-border/40 overflow-hidden">
             {/* Background decoration */}
             <div className="absolute inset-0 bg-grid-pattern opacity-5" />
