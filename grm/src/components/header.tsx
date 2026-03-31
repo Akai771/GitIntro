@@ -13,7 +13,6 @@ export default function Header() {
   });
 
   const CustomToggle = () => {
-
     return (
       <div className="flex gap-2">
         {isDark ? (
