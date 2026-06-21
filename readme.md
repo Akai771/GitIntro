@@ -1,99 +1,132 @@
+<div align="center">
+<img src="grm/public/logo.png" width="100" height="100" style="border-radius: 20px; background: #141312; padding: 10px" />
+
 # GitIntro
 
-A modern, intuitive web application for creating beautiful GitHub profile READMEs with ease. Choose from professionally designed templates, customize them to your needs, and generate markdown ready to showcase your profile.
+**Create beautiful GitHub profile READMEs in minutes.**
+
+GitIntro is a modern web app with professionally designed templates, real-time preview, and one-click markdown export — so your GitHub profile actually reflects who you are.
+
+![React](https://img.shields.io/badge/React_19-TypeScript-61DAFB?style=flat-square&logo=react)
+![Vite](https://img.shields.io/badge/Vite-Build_Tool-646CFF?style=flat-square&logo=vite)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_4-Styling-06B6D4?style=flat-square&logo=tailwindcss)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-Animations-EF0051?style=flat-square&logo=framer)
+
+</div>
+
+---
+
+## What it does
+
+Writing a good GitHub profile README is tedious. GitIntro gives you 6 professional templates, an interactive editor with live preview, and a tech stack selector with auto-complete — so you go from blank to polished in under 5 minutes.
+
+---
 
 ## Features
 
-- **6 Professional Templates** - Minimalist Dev, Portfolio Showcase, Technical Writer, Indie Hacker, Social Connector, and Blank Canvas
-- **Interactive Editor** - Real-time preview with side-by-side editing
-- **Tech Stack Selector** - Easily add technology badges with auto-complete
-- **GitHub Stats Integration** - Multiple stat cards and activity graphs
-- **Dark/Light Mode** - Seamless theme switching
-- **Auto-save Drafts** - Never lose your progress with local storage
-- **Fully Responsive** - Works perfectly on all devices
-- **Live Markdown Preview** - See exactly how your README will look
-- **One-Click Copy** - Copy generated markdown instantly
-- **Direct Download** - Download as README.md file
+- **6 Professional Templates** — Minimalist Dev, Portfolio Showcase, Technical Writer, Indie Hacker, Social Connector, Blank Canvas
+- **Interactive Editor** — Side-by-side editing with real-time markdown preview
+- **Tech Stack Selector** — Add technology badges with auto-complete search
+- **GitHub Stats Integration** — Stat cards and activity graphs, toggle on/off
+- **Dark / Light Mode** — Seamless theme switching
+- **Auto-save Drafts** — Progress saved to local storage automatically
+- **One-Click Copy** — Copy generated markdown instantly
+- **Direct Download** — Export as `README.md`
+- **Fully Responsive** — Works on all screen sizes
+
+---
 
 ## Tech Stack
 
-- **Frontend Framework:** React 19 with TypeScript
-- **Build Tool:** Vite
-- **Styling:** Tailwind CSS 4 + Framer Motion
-- **UI Components:** Radix UI primitives
-- **Routing:** React Router DOM
-- **State Management:** React Hooks + Custom Hooks
-- **Markdown Preview:** @uiw/react-markdown-preview
-- **Icons:** Lucide React + Tabler Icons
+| | |
+|---|---|
+| Framework | React 19 + TypeScript |
+| Build | Vite |
+| Styling | Tailwind CSS 4 + Framer Motion |
+| UI | Radix UI primitives |
+| Routing | React Router DOM |
+| State | React Hooks + Custom Hooks |
+| Markdown | `@uiw/react-markdown-preview` |
+| Icons | Lucide React + Tabler Icons |
 
-## Installation
+---
+
+## Getting Started
 
 ```bash
-# Clone the repository
+# Clone the repo
 git clone https://github.com/Akai771/GitIntro.git
 
-# Navigate to project directory
+# Navigate to project
 cd gitintro/grm
 
 # Install dependencies
 npm install
 
-# Start development server
+# Start dev server
 npm run dev
 ```
 
-## 🛠️ Available Scripts
+### Available Scripts
 
-- `npm run dev` - Start development server (default: http://localhost:5173)
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
+| Command | Description |
+|---|---|
+| `npm run dev` | Start dev server at `http://localhost:5173` |
+| `npm run build` | Production build |
+| `npm run preview` | Preview production build |
+| `npm run lint` | Run ESLint |
 
-## 📖 Usage
+---
 
-1. **Choose a Template** - Browse through 6 professionally designed templates
-2. **Customize Content** - Fill in your information in the intuitive form editor
-3. **Select Tech Stack** - Use the tech stack selector to add your skills with badges
-4. **Enable Stats** - Toggle GitHub stats cards and activity graphs
-5. **Preview in Real-time** - See your README update live as you type
-6. **Copy or Download** - Get your markdown with one click
+## Usage
+
+1. **Choose a template** — browse 6 professionally designed layouts
+2. **Customize content** — fill in your info via the form editor
+3. **Select tech stack** — add skill badges with the auto-complete selector
+4. **Enable stats** — toggle GitHub stats cards and activity graphs
+5. **Preview live** — see your README update as you type
+6. **Copy or download** — get your markdown with one click
+
+---
 
 ## Template Gallery
 
 | Template | Description | Best For |
-|----------|-------------|----------|
-| **Minimalist Dev** | Clean, text-focused layout | Backend developers, minimalists |
-| **Portfolio Showcase** | Visual-heavy design | Frontend developers, designers |
+|---|---|---|
+| **Minimalist Dev** | Clean, text-focused layout | Backend devs, minimalists |
+| **Portfolio Showcase** | Visual-heavy design | Frontend devs, designers |
 | **Technical Writer** | Documentation-oriented | Content creators, educators |
 | **Indie Hacker** | Product and revenue focused | Entrepreneurs, indie makers |
-| **Social Connector** | Social media hub | Community builders, influencers |
+| **Social Connector** | Social media hub | Community builders |
 | **Blank Canvas** | Start from scratch | Advanced users, unique layouts |
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/FeatureName`)
-3. Commit your changes (`git commit -m 'Add some FeatureName'`)
-4. Push to the branch (`git push origin feature/FeatureName`)
-5. Open a Pull Request
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## Acknowledgments
-
-- [Shields.io](https://shields.io/) - Badge generation
-- [GitHub Readme Stats](https://github.com/anuraghazra/github-readme-stats) - GitHub statistics
-- [Radix UI](https://www.radix-ui.com/) - Accessible UI components
-- [Lucide](https://lucide.dev/) - Beautiful icons
-
-## Contact
-
-Found a bug or have a feature request? Please [open an issue](https://github.com/yourusername/github-readme-maker/issues).
 
 ---
 
-Made with ❤️ for the GitHub community
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch — `git checkout -b feature/FeatureName`
+3. Commit your changes — `git commit -m 'Add FeatureName'`
+4. Push to branch — `git push origin feature/FeatureName`
+5. Open a Pull Request
+
+---
+
+## Acknowledgments
+
+- [Shields.io](https://shields.io/) — Badge generation
+- [GitHub Readme Stats](https://github.com/anuraghazra/github-readme-stats) — GitHub statistics
+- [Radix UI](https://www.radix-ui.com/) — Accessible UI components
+- [Lucide](https://lucide.dev/) — Icons
+
+---
+
+## License
+
+MIT — see [LICENSE](LICENSE) for details.
+
+---
+
+<div align="center">
+  <sub>Built by <a href="https://github.com/Akai771">Akai</a></sub>
+</div>
