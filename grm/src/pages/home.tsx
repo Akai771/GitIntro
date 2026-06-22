@@ -22,7 +22,7 @@ export default function Home() {
   const marqueeRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const featuresRef = useRef<HTMLDivElement>(null);
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -32,11 +32,12 @@ export default function Home() {
           }
         });
       },
-      { threshold: 0.1, rootMargin: "-50px" }
+      { threshold: 0.1, rootMargin: "-50px" },
     );
 
     const heroElements = heroRef.current?.querySelectorAll("[data-animate]");
-    const featureCards = featuresRef.current?.querySelectorAll("[data-animate]");
+    const featureCards =
+      featuresRef.current?.querySelectorAll("[data-animate]");
     const ctaElements = ctaRef.current?.querySelectorAll("[data-animate]");
     const marqueeElement = marqueeRef.current;
 
@@ -86,7 +87,10 @@ export default function Home() {
       <ReactLenis root />
       <div className="min-h-screen bg-background text-foreground overflow-hidden relative selection:bg-primary/20">
         {/* Hero Section */}
-        <section ref={heroRef} className="container mx-auto px-6 py-32 flex flex-col items-center text-center relative z-10">
+        <section
+          ref={heroRef}
+          className="container mx-auto px-6 py-32 flex flex-col items-center text-center relative z-10"
+        >
           <Badge
             data-animate
             variant="default"
@@ -99,16 +103,24 @@ export default function Home() {
             <span>v1.0 is now available</span>
           </Badge>
           {/* Heading */}
-          <h1 
+          <h1
             data-animate
             className="md:h-54 text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-8 max-w-5xl bg-clip-text text-transparent bg-linear-to-b from-foreground to-foreground/70 opacity-0 translate-y-7.5 transition-all duration-700 delay-100 [&.animate-in-view]:opacity-100 [&.animate-in-view]:translate-y-0"
           >
             Craft Your{" "}
-            <AuroraText colors={["oklch(0.869 0.088 60.682)", "oklch(0.869 0.088 60.682 / 0.5)", "oklch(0.869 0.088 60.682)"]}>Github</AuroraText>
-            {" "}Identity
+            <AuroraText
+              colors={[
+                "oklch(0.869 0.088 60.682)",
+                "oklch(0.869 0.088 60.682 / 0.5)",
+                "oklch(0.869 0.088 60.682)",
+              ]}
+            >
+              Github
+            </AuroraText>{" "}
+            Identity
           </h1>
 
-          <p 
+          <p
             data-animate
             className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl leading-relaxed opacity-0 translate-y-7.5 transition-all duration-1000 delay-200 [&.animate-in-view]:opacity-100 [&.animate-in-view]:translate-y-0"
           >
@@ -116,7 +128,7 @@ export default function Home() {
             professional profile READMEs in minutes.
           </p>
 
-          <div 
+          <div
             data-animate
             className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto opacity-0 translate-y-7.5 transition-all duration-1000 delay-300 [&.animate-in-view]:opacity-100 [&.animate-in-view]:translate-y-0"
           >
@@ -135,7 +147,10 @@ export default function Home() {
         </section>
 
         {/* Features Grid */}
-        <section ref={featuresRef} className="container mx-auto px-6 py-32 z-10 relative">
+        <section
+          ref={featuresRef}
+          className="container mx-auto px-6 py-32 z-10 relative"
+        >
           <div className="flex flex-col items-center mb-20">
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground/60 mb-4 font-medium">
               Features
@@ -181,23 +196,24 @@ export default function Home() {
         </section>
 
         {/* CTA Section with Template Grid */}
-        <section ref={ctaRef} className="container mx-auto px-6 md:px-0 py-24 mb-12">
+        <section
+          ref={ctaRef}
+          className="container mx-auto px-6 md:px-0 py-24 mb-12"
+        >
           <div className="relative rounded-3xl bg-linear-to-br from-background via-muted/20 to-background border border-border/40 overflow-hidden">
             {/* Background decoration */}
             <div className="absolute inset-0 bg-grid-pattern opacity-5" />
 
             <div className="relative flex flex-col lg:flex-row items-center gap-30 p-8 md:p-12 lg:p-16 lg:pr-0">
               {/* Left Content */}
-              <div 
+              <div
                 data-animate
                 className="shrink-0 lg:max-w-xl space-y-8 opacity-0 -translate-x-12.5 transition-all duration-700 [&.animate-in-view]:opacity-100 [&.animate-in-view]:translate-x-0 lg:pr-12"
               >
                 <div className="space-y-4">
                   <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
                     Take Your Profile to the{" "}
-                    <span className="text-primary">
-                      Next Level!
-                    </span>
+                    <span className="text-primary">Next Level!</span>
                   </h2>
                   <p className="text-md md:text-lg text-muted-foreground leading-relaxed max-w-lg">
                     With a variety of unique templates, you can effortlessly
@@ -217,7 +233,7 @@ export default function Home() {
               </div>
 
               {/* Right Template Grid - Vertical Marquee */}
-              <div 
+              <div
                 ref={marqueeRef}
                 data-animate
                 className="hidden lg:block relative left-20 h-125 flex-1 lg:ml-auto opacity-0 translate-x-12.5 transition-all duration-1000 delay-300 [&.animate-in-view]:opacity-100 [&.animate-in-view]:translate-x-0"
@@ -227,97 +243,99 @@ export default function Home() {
                   <div className="flex flex-col gap-2 animate-marquee-vertical">
                     {/* First complete set */}
                     <div className="w-full rounded-xl overflow-hidden shadow-2xl border border-border/40 hover:scale-105 transition-transform duration-300 group/card">
-                      <img 
-                        src="/templates/minimalist.png" 
-                        alt="Minimalist Template" 
+                      <img
+                        src="/templates/minimalist.png"
+                        alt="Minimalist Template"
                         className="w-full h-48 object-cover object-top"
                       />
                     </div>
                     <div className="w-full rounded-xl overflow-hidden shadow-2xl border border-border/40 hover:scale-105 transition-transform duration-300 group/card">
-                      <img 
-                        src="/templates/portfolio.png" 
-                        alt="Portfolio Template" 
+                      <img
+                        src="/templates/portfolio.png"
+                        alt="Portfolio Template"
                         className="w-full h-48 object-cover object-top"
                       />
                     </div>
                     <div className="w-full rounded-xl overflow-hidden shadow-2xl border border-border/40 hover:scale-105 transition-transform duration-300 group/card">
-                      <img 
-                        src="/templates/social.png" 
-                        alt="Social Template" 
+                      <img
+                        src="/templates/social.png"
+                        alt="Social Template"
                         className="w-full h-48 object-cover object-top"
                       />
                     </div>
                     <div className="w-full rounded-xl overflow-hidden shadow-2xl border border-border/40 hover:scale-105 transition-transform duration-300 group/card">
-                      <img 
-                        src="/templates/startup.png" 
-                        alt="Startup Template" 
+                      <img
+                        src="/templates/startup.png"
+                        alt="Startup Template"
                         className="w-full h-48 object-cover object-top"
                       />
                     </div>
                     <div className="w-full rounded-xl overflow-hidden shadow-2xl border border-border/40 hover:scale-105 transition-transform duration-300 group/card">
-                      <img 
-                        src="/templates/technicalWriter.png" 
-                        alt="Technical Writer Template" 
+                      <img
+                        src="/templates/technicalWriter.png"
+                        alt="Technical Writer Template"
                         className="w-full h-48 object-cover object-top"
                       />
                     </div>
                     <div className="w-full rounded-xl overflow-hidden shadow-2xl border border-border/40 hover:scale-105 transition-transform duration-300 group/card">
-                      <img 
-                        src="/templates/blank.png" 
-                        alt="Blank Template" 
+                      <img
+                        src="/templates/blank.png"
+                        alt="Blank Template"
                         className="w-full h-48 object-cover object-top"
                       />
                     </div>
                   </div>
-                  
+
                   {/* Vertical Marquee Container Reversed */}
-                  <div className="flex flex-col gap-2 animate-marquee-vertical" style={{ animationDirection: 'reverse' }}>
+                  <div
+                    className="flex flex-col gap-2 animate-marquee-vertical"
+                    style={{ animationDirection: "reverse" }}
+                  >
                     {/* First complete set */}
                     <div className="w-full rounded-xl overflow-hidden shadow-2xl border border-border/40 hover:scale-105 transition-transform duration-300 group/card">
-                      <img 
-                        src="/templates/minimalist.png" 
-                        alt="Minimalist Template" 
+                      <img
+                        src="/templates/minimalist.png"
+                        alt="Minimalist Template"
                         className="w-full h-48 object-cover object-top"
                       />
                     </div>
                     <div className="w-full rounded-xl overflow-hidden shadow-2xl border border-border/40 hover:scale-105 transition-transform duration-300 group/card">
-                      <img 
-                        src="/templates/portfolio.png" 
-                        alt="Portfolio Template" 
+                      <img
+                        src="/templates/portfolio.png"
+                        alt="Portfolio Template"
                         className="w-full h-48 object-cover object-top"
                       />
                     </div>
                     <div className="w-full rounded-xl overflow-hidden shadow-2xl border border-border/40 hover:scale-105 transition-transform duration-300 group/card">
-                      <img 
-                        src="/templates/social.png" 
-                        alt="Social Template" 
+                      <img
+                        src="/templates/social.png"
+                        alt="Social Template"
                         className="w-full h-48 object-cover object-top"
                       />
                     </div>
                     <div className="w-full rounded-xl overflow-hidden shadow-2xl border border-border/40 hover:scale-105 transition-transform duration-300 group/card">
-                      <img 
-                        src="/templates/startup.png" 
-                        alt="Startup Template" 
+                      <img
+                        src="/templates/startup.png"
+                        alt="Startup Template"
                         className="w-full h-48 object-cover object-top"
                       />
                     </div>
                     <div className="w-full rounded-xl overflow-hidden shadow-2xl border border-border/40 hover:scale-105 transition-transform duration-300 group/card">
-                      <img 
-                        src="/templates/technicalWriter.png" 
-                        alt="Technical Writer Template" 
+                      <img
+                        src="/templates/technicalWriter.png"
+                        alt="Technical Writer Template"
                         className="w-full h-48 object-cover object-top"
                       />
                     </div>
                     <div className="w-full rounded-xl overflow-hidden shadow-2xl border border-border/40 hover:scale-105 transition-transform duration-300 group/card">
-                      <img 
-                        src="/templates/blank.png" 
-                        alt="Blank Template" 
+                      <img
+                        src="/templates/blank.png"
+                        alt="Blank Template"
                         className="w-full h-48 object-cover object-top"
                       />
                     </div>
                   </div>
                 </div>
-                
               </div>
             </div>
           </div>
